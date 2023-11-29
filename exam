@@ -1,0 +1,285 @@
+// Тест
+// 1 жауабы:(b)
+// 2 жауабы:(d)
+// 3 жауабы:(a)
+// 4 жауабы:(d)
+// 5 жауабы:(d)
+// 6 жауабы:(a)
+// 7 жауабы:(c)
+// 8 жауабы:(с)
+// 9 жауабы:(b)
+// 10 жауабы:(c)
+// 11 жауабы:(b)
+// 12 жауабы:(a)
+// 13 жауабы:(a)
+// 14 жауабы:(c)
+// 15 жауабы:(c)
+// Есеп
+// 1
+// function calculateExpression(expression) {
+//     try {
+//       const result = eval(expression);
+//       if (isFinite(result)) {
+//         return result;
+//       } else {
+//         return "Қате: жарамсыз өрнек";
+//       }
+//     } catch (error) {
+//       return "Қате: жарамсыз өрнек";
+//     }
+//   }
+//   const expression = "3 * (4 + 2) / 7";
+//   const result = calculateExpression(expression);
+//   console.log(result);
+// 2
+// function getUserChoice() {
+//     let userChoice = prompt("Choose: rock, paper, or scissors").toLowerCase()
+//     if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors") {
+//       return userChoice;
+//     } else {
+//       alert("Invalid choice. Please choose rock, paper, or scissors.");
+//       return getUserChoice();
+//     }
+//   }
+//   function getComputerChoice() {
+//     let randomNum = Math.floor(Math.random() * 3);
+//     switch (randomNum) {
+//       case 0:
+//         return "rock";
+//       case 1:
+//         return "paper";
+//       case 2:
+//         return "scissors";
+//     }
+//   }
+  
+//   function determineWinner(userChoice, computerChoice) {
+//     if (userChoice === computerChoice) {
+//       return "It's a tie!";
+//     } else if (
+//       (userChoice === "rock" && computerChoice === "scissors") ||
+//       (userChoice === "paper" && computerChoice === "rock") ||
+//       (userChoice === "scissors" && computerChoice === "paper")
+//     ) {
+//       return "You win!";
+//     } else {
+//       return "You lose!";
+//     }
+//   }
+  
+//   function playGame() {
+//     let userChoice = getUserChoice();
+//     let computerChoice = getComputerChoice();
+  
+//     console.log("You chose: " + userChoice);
+//     console.log("Computer chose: " + computerChoice);
+  
+//     console.log(determineWinner(userChoice, computerChoice));
+//   }
+//   playGame();
+// 3
+// function generatePascalsTriangle(rows) {
+//     let triangle = [];
+  
+//     for (let i = 0; i < rows; i++) {
+//       triangle[i] = [];
+//       for (let j = 0; j <= i; j++) {
+//         if (j === 0 || j === i) {
+//           triangle[i][j] = 1;
+//         } else {
+//           triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+//         }
+//       }
+//     }
+//     return triangle;
+//   }
+//   function printPascalsTriangle(triangle) {
+//     for (let i = 0; i < triangle.length; i++) {
+//       let row = "";
+//       for (let j = 0; j < triangle[i].length; j++) {
+//         row += triangle[i][j] + " ";
+//       }
+//       console.log(row);
+//     }
+//   }
+//   const rows = 10;
+//   const pascalsTriangle = generatePascalsTriangle(rows);
+//   printPascalsTriangle(pascalsTriangle);
+// 5
+// function fibonacci(n, memo = {}) {
+//     if (n <= 1) {
+//       return n;
+//     }
+//     if (memo[n] !== undefined) {
+//       return memo[n];
+//     }
+//     memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo);
+  
+//     return memo[n];
+//   }
+//   const nthTerm = 10;
+//   const result = fibonacci(nthTerm);
+//   console.log(`${nthTerm}-й член последовательности Фибоначчи равен: ${result}`);
+// 6
+// const readline = require('readline');
+
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
+
+// function generateTable(rows, columns) {
+//   const table = [];
+
+//   let count = 1;
+//   for (let i = 0; i < rows; i++) {
+//     const row = [];
+//     for (let j = 0; j < columns; j++) {
+//       row.push(count++);
+//     }
+//     table.push(row);
+//   }
+
+//   return table;
+// }
+
+// function printTable(table) {
+//   for (let i = 0; i < table.length; i++) {
+//     console.log(table[i].join('\t'));
+//   }
+// }
+
+// rl.question('Enter the number of rows: ', (rows) => {
+//   rl.question('Enter the number of columns: ', (columns) => {
+//     const dynamicTable = generateTable(parseInt(rows), parseInt(columns));
+//     printTable(dynamicTable);
+//     rl.close();
+//   });
+// });
+// 7
+// document.addEventListener('DOMContentLoaded', function () {
+//   const draggableElement = document.getElementById('draggable');
+//   const droppableElement = document.getElementById('droppable');
+
+//   draggableElement.addEventListener('dragstart', function (event) {
+//     event.dataTransfer.setData('text/plain', 'Drag me');
+//   });
+
+//   droppableElement.addEventListener('dragover', function (event) {
+//     event.preventDefault();
+//   });
+
+//   droppableElement.addEventListener('drop', function (event) {
+//     event.preventDefault();
+//     const data = event.dataTransfer.getData('text/plain');
+//     console.log(`Source Element: ${data}`);
+//     console.log(`Target Element: ${droppableElement.innerText}`);
+//     const draggedElement = document.createElement('div');
+//     draggedElement.innerText = data;
+//     droppableElement.appendChild(draggedElement);
+//   });
+// 8
+// class Shape {
+//   constructor() {
+//     if (this.constructor === Shape) {
+//       throw new Error("Abstract class 'Shape' cannot be instantiated.");
+//     }
+//   }
+//   calculateArea() {
+//     throw new Error("Method 'calculateArea' must be implemented in subclasses.");
+//   }
+
+//   calculatePerimeter() {
+//     throw new Error("Method 'calculatePerimeter' must be implemented in subclasses.");
+//   }
+// }
+
+// class Circle extends Shape {
+//   constructor(radius) {
+//     super();
+//     this.radius = radius;
+//   }
+
+//   calculateArea() {
+//     return Math.PI * this.radius * this.radius;
+//   }
+
+//   calculatePerimeter() {
+//     return 2 * Math.PI * this.radius;
+//   }
+// }
+
+// class Rectangle extends Shape {
+//   constructor(width, height) {
+//     super();
+//     this.width = width;
+//     this.height = height;
+//   }
+
+//   calculateArea() {
+//     return this.width * this.height;
+//   }
+
+//   calculatePerimeter() {
+//     return 2 * (this.width + this.height);
+//   }
+// }
+// const circle = new Circle(5);
+// console.log("Circle Area:", circle.calculateArea());
+// console.log("Circle Perimeter:", circle.calculatePerimeter());
+
+// const rectangle = new Rectangle(4, 6);
+// console.log("Rectangle Area:", rectangle.calculateArea());
+// console.log("Rectangle Perimeter:", rectangle.calculatePerimeter());
+// 9
+// function generateFibonacci(n) {
+//   let result = [];
+//   let a = 0;
+//   let b = 1;
+
+//   while (n > 0) {
+//     result.push(a);
+//     let temp = a + b;
+//     a = b;
+//     b = temp;
+//     n--;
+//   }
+
+//   return result;
+// }
+// const fibonacciSequence = generateFibonacci(10);
+
+// console.log("First 10 Fibonacci Numbers:", fibonacciSequence);
+// 10
+// function findBookWithMostPages(books) {
+//   if (books.length === 0) {
+//     console.log("No books in the array.");
+//     return;
+//   }
+
+//   let maxPages = -1;
+//   let bookWithMostPages = null;
+
+//   for (const book of books) {
+//     if (book.pages > maxPages) {
+//       maxPages = book.pages;
+//       bookWithMostPages = book;
+//     }
+//   }
+
+//   if (bookWithMostPages !== null) {
+//     console.log("Book with the most pages:");
+//     console.log("Title:", bookWithMostPages.title);
+//     console.log("Author:", bookWithMostPages.author);
+//     console.log("Pages:", bookWithMostPages.pages);
+//   } else {
+//     console.log("Unable to determine the book with the most pages.");
+//   }
+// }
+// const books = [
+//   { title: "Book1", author: "Author1", pages: 150 },
+//   { title: "Book2", author: "Author2", pages: 200 },
+//   { title: "Book3", author: "Author3", pages: 180 }
+// ];
+
+// findBookWithMostPages(books);
