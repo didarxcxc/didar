@@ -1,0 +1,167 @@
+
+// 1. forEach: It executes a provided function once for each array element.
+//    map: It creates a new array with the results of calling a provided function on every element in the calling array.
+//    filter: It creates a new array with all elements that pass the test implemented by the provided function.
+//    reduce: It applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.
+
+// 2. A callback function is a function that is passed as an argument to another function, and it is executed after the completion of that function.
+
+// 3
+// countries.forEach(country => console.log(country));
+
+// 4. 
+// names.forEach(name => console.log(name));
+
+// 5. 
+// numbers.forEach(number => console.log(number));
+
+// 6. 
+// const countriesUpperCase = countries.map(country => country.toUpperCase());
+// console.log(countriesUpperCase);
+
+// 7. 
+// const countriesLength = countries.map(country => country.length);
+// console.log(countriesLength);
+
+// 8. 
+// const squaredNumbers = numbers.map(number => number * number);
+// console.log(squaredNumbers);
+
+// 9. 
+// const namesUpperCase = names.map(name => name.toUpperCase());
+// console.log(namesUpperCase);
+
+// 10. 
+// const productPrices = products.map(product => product.price);
+// console.log(productPrices);
+
+// 11. 
+// const countriesContainingLand = countries.filter(country => country.includes('land'));
+// console.log(countriesContainingLand);
+
+// 12. 
+// const countriesWithSixCharacters = countries.filter(country => country.length === 6);
+// console.log(countriesWithSixCharacters);
+
+// 13. 
+// const countriesWithSixOrMoreLetters = countries.filter(country => country.length >= 6);
+// console.log(countriesWithSixOrMoreLetters);
+
+// 14. 
+// const countriesNotStartingWithE = countries.filter(country => !country.startsWith('E'));
+// console.log(countriesNotStartingWithE);
+
+// 15. 
+// const pricesWithValues = products.filter(product => product.price !== '');
+// console.log(pricesWithValues);
+
+// 16. 
+// function getStringLists(arr) {
+//   return arr.filter(item => typeof item === 'string');
+// }
+
+// console.log(getStringLists([1, 'hello', 3, 'world']));
+
+// 17. 
+// const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+// console.log(sum);
+
+// 18. 
+// const sentence = countries.reduce((acc, country, index) => {
+//   if (index === countries.length - 1) {
+//     return acc + 'and ' + country + ' are north European countries';
+//   } else {
+//     return acc + country + ', ';
+//   }
+// }, '');
+// console.log(sentence);
+// level 2
+// 1
+// const totalPrice = products.map(product => product.price)
+// .filter(price => typeof price === 'number')
+// .reduce((acc, curr) => acc + curr, 0);
+// 2
+// const sumOfPrices = products.reduce((acc, curr) => {
+//     if (typeof curr.price === 'number') {
+//       return acc + curr.price;
+//     }
+//     return acc;
+//   }, 0);
+//   3
+// function categorizeCountries(pattern) {
+//     return countries.filter(country => country.toLowerCase().includes(pattern.toLowerCase()));
+//   }
+//   const countriesWithLand = categorizeCountries('land');
+//   const countriesWithIa = categorizeCountries('ia');
+// 4
+// function countInitialLetters(array) {
+//     return array.reduce((acc, country) => {
+//       const initialLetter = country[0].toLowerCase();
+//       acc[initialLetter] = (acc[initialLetter] || 0) + 1;
+//       return acc;
+//     }, {});
+//   }
+//   const letterCount = countInitialLetters(countries);
+// 5
+// function getFirstTenCountries() {
+//     return countries.slice(0, 10);
+//   }
+// 6
+// function getLastTenCountries() {
+//     return countries.slice(-10);
+//   }
+// 7
+// const initialLetterCounts = countInitialLetters(countries);
+
+// let mostUsedLetter;
+// let maxCount = 0;
+
+// for (const letter in initialLetterCounts) {
+//   if (initialLetterCounts[letter] > maxCount) {
+//     mostUsedLetter = letter;
+//     maxCount = initialLetterCounts[letter];
+//   }
+// }
+
+// console.log(`The letter '${mostUsedLetter}' is used most frequently as the initial for a country name.`);
+// level3
+// 1
+// const countriesData = require('./data/countries'); 
+// const countriesByName = countriesData.sort((a, b) => a.name.localeCompare(b.name));
+// const countriesByCapital = countriesData.sort((a, b) => a.capital.localeCompare(b.capital));
+// const countriesByPopulation = countriesData.sort((a, b) => b.population - a.population);
+// console.log('Countries sorted by name:', countriesByName);
+// console.log('Countries sorted by capital:', countriesByCapital);
+// console.log('Countries sorted by population:', countriesByPopulation);
+// 2
+// function mostSpokenLanguages(countries, limit) {
+//     const languageCounts = {};
+//     countries.forEach(country => {
+//       if (country.languages) {
+//         country.languages.forEach(language => {
+//           languageCounts[language] = (languageCounts[language] || 0) + 1;
+//         });
+//       }
+//     });
+//     const languagesArray = Object.entries(languageCounts)
+//       .map(([language, count]) => ({ language, count }));
+
+//     languagesArray.sort((a, b) => b.count - a.count);
+  
+   
+//     return languagesArray.slice(0, limit);
+//   }
+//   const topLanguages = mostSpokenLanguages(countries, 10);
+//   console.log(topLanguages);
+// 3
+// function mostPopulatedCountries(countries, limit) {
+//     const sortedCountries = countries.sort((a, b) => b.population - a.population);
+//     return sortedCountries.slice(0, limit).map(country => ({
+//       country: country.name,
+//       population: country.population,
+//     }));
+//   }
+//   const topPopulatedCountries = mostPopulatedCountries(countries, 10);
+//   console.log(topPopulatedCountries);
+  
+  
